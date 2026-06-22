@@ -38,3 +38,12 @@
 2. **Fix XSS Vectors**: Audit all uses of `.innerHTML` in `admin.js`, `owner-dashboard.js`, and `app.js`. Replace them with safer alternatives.
 3. **Refactor Deployments**: Instead of manually parsing and injecting JS files, use standard frontend tooling (e.g. Vite environment variables) to handle different builds per white-label site.
 4. **Testing**: There appears to be a lack of automated testing. Add unit and integration tests (e.g., Jest, Playwright) especially for the payment and booking flows.
+
+## 6. Ratings
+### Codebase Rating: 6/10
+- **Pros**: The backend architecture leveraging Supabase, Row Level Security, and Edge Functions is well-thought-out. The deployment scripts show a solid attempt at automating white-labeled deployments.
+- **Cons**: The frontend architecture relies heavily on Vanilla JS and manual DOM manipulation (via `innerHTML`), which makes it brittle, hard to scale, and vulnerable to XSS attacks. The lack of a modern framework and automated testing reduces the overall maintainability of the codebase.
+
+### Developer Rating: 7/10
+- **Pros**: Demonstrates strong backend and infrastructure skills. Good grasp of Supabase, SQL migrations, Row Level Security, and third-party integrations (Razorpay). The custom deployment scripts indicate a proactive approach to DevOps and automation.
+- **Cons**: Needs to adopt modern frontend development practices (e.g., using React/Vue, or at least a bundler like Vite). Security awareness on the client-side needs improvement, specifically regarding XSS prevention and safe DOM manipulation.
